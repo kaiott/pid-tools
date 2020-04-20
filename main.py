@@ -54,15 +54,13 @@ print(Gcl)
 print(co.pole(Gcl))
 print(co.zero(Gcl))
 
-xmin, xmax, ymin, ymax = plt.axis()
-allthings = np.append(np.append(np.append(zeros, poles), s), np.conj(s))
-bottom=np.max([np.min(np.imag(allthings)) -2, ymin])
-top=np.min([np.max(np.imag(allthings)) + 2, ymax])
-left=np.max([np.min(np.real(allthings)) -2, xmin])
-right=np.min([np.max(np.real(allthings)) + 2, xmax])
-plt.ylim(bottom, top)
-plt.xlim(left, right)
-xmin, xmax, ymin, ymax = plt.axis()
+poles_and_zeros = np.append(np.append(np.append(zeros, poles), s), np.conj(s))
+ymin=np.min(np.imag(poles_and_zeros)) - 2
+ymax=np.max(np.imag(poles_and_zeros)) + 2
+xmin=np.min(np.real(poles_and_zeros)) -2
+xmax=np.max(np.real(poles_and_zeros)) + 2
+plt.ylim(ymin, ymax)
+plt.xlim(xmin, xmax)
 
 for root in co.pole(Gcl):
 	plt.plot(np.real(root), np.imag(root), color='red', marker='*')

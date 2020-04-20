@@ -46,7 +46,7 @@ def plot_crit_arg(z, s, poles, zeros):
 
 
 def print_text(z, s, poles, zeros):
-	print(f'Elejimos la raíz s = { s }')
+	print(f'Polo de diseño s = { s:.2f}')
 	print(f'Con el criterio del argumento: \u2211arg(s-pi) - \u2211arg(s-zi) = (2p+1)\u03C0, p \u220A \u2124')
 
 	string = ''
